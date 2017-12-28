@@ -21,6 +21,9 @@ public class StudentGroup implements GroupOperationService {
 
 	@Override
 	public void setStudents(Student[] students) {
+		if(students == null) {
+			throw new IllegalArgumentException(); 
+		}
 		this.students = students;
 	}
 
@@ -36,9 +39,13 @@ public class StudentGroup implements GroupOperationService {
 	public void setStudent(Student student, int index) {
 		if (student == null) {
 			throw new IllegalArgumentException();
-		} else {
-			students[index] = student;
+		} else if(indexArray == students.length - 1) {
+			Student[] temp = students;
+		    students = new Student[temp.length + 1];
+		    System.arraycopy(temp, 0, students, 0, temp.length);
 		}
+		students[index] = student;
+		indexArray++;
 	}
 
 	@Override
@@ -175,14 +182,21 @@ public class StudentGroup implements GroupOperationService {
 
 	@Override
 	public void bubbleSort() {
-
+		int studentIter = 0;
+		Student[] temp = students;
+		for(int i = 0; i < temp.length; i ++) {
+			if(temp[i] != null) {
+				students[studentIter] = temp[i];
+				studentIter++;
+			}
+		}
 		for (int i = 0; i < students.length; i++) {
 			for (int j = i + 1; j < students.length; j++) {
 				if (students[i] != null && students[j] != null
 						&& students[i].getFullName().compareTo(students[j].getFullName()) > 0) {
-					Student temp = students[j];
+					Student tempAr = students[j];
 					students[j] = students[i];
-					students[i] = temp;
+					students[i] = tempAr;
 				}
 			}
 		}
