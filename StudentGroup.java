@@ -21,15 +21,15 @@ public class StudentGroup implements GroupOperationService {
 
 	@Override
 	public void setStudents(Student[] students) {
-		if(students == null) {
-			throw new IllegalArgumentException(); 
+		if (students == null) {
+			throw new IllegalArgumentException();
 		}
 		this.students = students;
 	}
 
 	@Override
 	public Student getStudent(int index) {
-		if (students[index] == null) {
+		if (index < 0 && index >= students.length) {
 			throw new IllegalArgumentException();
 		} else
 			return students[index];
@@ -37,12 +37,12 @@ public class StudentGroup implements GroupOperationService {
 
 	@Override
 	public void setStudent(Student student, int index) {
-		if (student == null) {
+		if (student == null && index < 0 && index >= students.length) {
 			throw new IllegalArgumentException();
-		} else if(indexArray == students.length - 1) {
+		} else if (indexArray == students.length - 1) {
 			Student[] temp = students;
-		    students = new Student[temp.length + 1];
-		    System.arraycopy(temp, 0, students, 0, temp.length);
+			students = new Student[temp.length + 1];
+			System.arraycopy(temp, 0, students, 0, temp.length);
 		}
 		students[index] = student;
 		indexArray++;
@@ -184,8 +184,8 @@ public class StudentGroup implements GroupOperationService {
 	public void bubbleSort() {
 		int studentIter = 0;
 		Student[] temp = students;
-		for(int i = 0; i < temp.length; i ++) {
-			if(temp[i] != null) {
+		for (int i = 0; i < temp.length; i++) {
+			if (temp[i] != null) {
 				students[studentIter] = temp[i];
 				studentIter++;
 			}
@@ -204,14 +204,14 @@ public class StudentGroup implements GroupOperationService {
 
 	@Override
 	public Student[] getByBirthDate(Date date) {
-
+		
 		Student[] student = new Student[students.length];
 		int iter = 0;
 		if (date == null) {
 			throw new IllegalArgumentException();
 		} else {
 			for (int i = 0; i < students.length; i++) {
-				if (students[i]!=null && students[i].getBirthDate().equals(date) == true) {
+				if (students[i] != null && students[i].getBirthDate().equals(date) == true) {
 					student[iter] = students[i];
 					iter++;
 				}
