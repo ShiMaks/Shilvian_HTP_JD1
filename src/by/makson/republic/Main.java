@@ -8,44 +8,44 @@ public class Main {
 		
 		Region brestskay = new Region();
 		City capBrest = new City("Brest", 0.344);
-	    brestskay.nameRegion = "Brestskaya";
-	    brestskay.square = 32786.44;
-	    brestskay.regionalCenter = capBrest;
+	    brestskay.setNameRegion("Brestskaya");
+	    brestskay.setSquare(32786.44);
+	    brestskay.setRegionalCenter(capBrest);
 	    
 		
 		Region vitebskay = new Region();
 		City capVitebsk = new City("Vitebsk", 0.363);
-		vitebskay.nameRegion = "Vitebskaya";
-		vitebskay.square = 40051.34;
-		vitebskay.regionalCenter = capVitebsk;
+		vitebskay.setNameRegion("Vitebskaya");
+		vitebskay.setSquare(40051.34);
+		vitebskay.setRegionalCenter(capVitebsk);
 		
 		
 		Region gomelskay = new Region();
 		City capGomel = new City("Gomel", 0.509);
-		gomelskay.nameRegion = "Gomelskaya";
-		gomelskay.square = 40371.36;
-		gomelskay.regionalCenter = capGomel;
+		gomelskay.setNameRegion("Gomelskaya");
+		gomelskay.setSquare(40371.36);
+		gomelskay.setRegionalCenter(capGomel);
 		
 		
 		Region grodnenskay = new Region();
 		City capGrodno = new City("Grodno", 0.355);
-		grodnenskay.nameRegion = "Grodnenskaya";
-		grodnenskay.square = 25126.98;
-		grodnenskay.regionalCenter = capGrodno;
+		grodnenskay.setNameRegion("Grodnenskaya");
+		grodnenskay.setSquare(25126.98);
+		grodnenskay.setRegionalCenter(capGrodno);
 		
 		
 		Region minskay = new Region();
 		City capitalState = new City("Minsk", 1.911);
-		minskay.nameRegion = "Minskaya";
-		minskay.square = 39853.79;
-		minskay.regionalCenter = capitalState;
+		minskay.setNameRegion("Minskaya");
+		minskay.setSquare(39853.79);
+		minskay.setRegionalCenter(capitalState);
 		
 		
 		Region mogilevskay = new Region();
 		City capMogilev = new City("Mogilev", 0.369);
-		mogilevskay.nameRegion ="Mogilevskaya";
-		mogilevskay.square = 29067.62;
-		mogilevskay.regionalCenter = capMogilev;
+		mogilevskay.setNameRegion("Mogilevskaya");
+		mogilevskay.setSquare(29067.62);
+		mogilevskay.setRegionalCenter(capMogilev);
 		
 		State Belarus = new State();
 		Belarus.capital = capitalState;
